@@ -5,7 +5,7 @@ object MyModule {
   def abs(n: Int): Int = if (n < 0) -n else n
 
   /* Exercise 1 */
-  /*hello from amir */
+  /*hello from amir gg*/
   def square (n: Int): Int = n * n
 
   private def formatAbs(x: Int) =
