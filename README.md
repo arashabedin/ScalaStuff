@@ -1,7 +1,7 @@
 # ScalaStuff
 
 
-# Useful terminal commands:
+## Useful terminal commands:
 
 For compiling >> sbt compile
 For Runing >> sbt run
