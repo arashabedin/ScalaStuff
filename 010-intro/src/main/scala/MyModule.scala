@@ -18,5 +18,6 @@ object MyModule {
     assert (magic - 84 == magic.-(84))
     println (formatAbs (magic-100))
     println (square (5))
+    println(square(abs(-4)))
   }
 }
