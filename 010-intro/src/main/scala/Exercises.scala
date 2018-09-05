@@ -31,8 +31,16 @@ object Exercises extends App with ExercisesInterface {
 
   // add @annotation.tailrec to make the compiler check that your solution is
   // tail recursive
-  def fib (n: Int) : Int = ???
+  def fib (n: Int) : Int = {
 
+    @annotation.tailrec def fibHelper (x:Int , prev:Int = 0 , next:Int =1): Int = x match {
+      case 0 => prev
+      case 1 => next
+      case _ => fibHelper(x-1 , next , (prev + next))
+    }
+    fibHelper(n)
+  }
+ println(fib(2))  
   // Exercise 4
 
   // add @annotation.tailrec to make the compiler check that your solution is
