@@ -37,7 +37,19 @@ object Exercises extends App with ExercisesInterface {
 
   // add @annotation.tailrec to make the compiler check that your solution is
   // tail recursive
-  def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = ???
+  // Using the Match case solution
+  def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = {
+    val richTilTheEnd:Int = as.length - 1
+    @annotation.tailrec
+    def isSorthelper(x:Int):Boolean = x match{
+      case `richTilTheEnd` => true
+      case _ =>  (ordered(as(x),as(x+1)) && isSorthelper(x+1)) 
+    }
+    println(richTilTheEnd+10)
+
+    isSorthelper(0)
+
+   }
 
   // Exercise 5
 
