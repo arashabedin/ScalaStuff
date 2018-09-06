@@ -46,6 +46,22 @@ object Exercises extends App with ExercisesInterface {
 
   // add @annotation.tailrec to make the compiler check that your solution is
   // tail recursive
+
+  // Using the Match case solution
+  def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = {
+    val richTilTheEnd:Int = as.length - 1
+    @annotation.tailrec
+    def isSorthelper(x:Int):Boolean = x match{
+      case `richTilTheEnd` => true
+      case _ =>  (ordered(as(x),as(x+1)) && isSorthelper(x+1)) 
+    }
+    println(richTilTheEnd+10)
+
+    isSorthelper(0)
+
+   }
+  
+ // Using if solution
   def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = {
     @annotation.tailrec 
     def isOnOrderUntilNow(x:Int):Boolean = {
@@ -56,6 +72,7 @@ object Exercises extends App with ExercisesInterface {
     }
     isOnOrderUntilNow(0)
 }
+
   // Exercise 5
 
   def curry[A,B,C] (f: (A,B)=>C): A => (B => C) = 
