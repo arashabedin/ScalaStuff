@@ -33,20 +33,28 @@ object Exercises extends App with ExercisesInterface {
   // tail recursive
   def fib (n: Int) : Int = {
 
-    @annotation.tailrec def fibHelper (x:Int , prev:Int = 0 , next:Int =1): Int = x match {
+    @annotation.tailrec 
+    def fibHelper (x:Int , prev:Int = 0 , next:Int =1): Int = x match {
       case 0 => prev
       case 1 => next
       case _ => fibHelper(x-1 , next , (prev + next))
     }
     fibHelper(n)
   }
- println(fib(2))  
   // Exercise 4
 
   // add @annotation.tailrec to make the compiler check that your solution is
   // tail recursive
-  def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = ???
-
+  def isSorted[A] (as: Array[A], ordered: (A,A) =>  Boolean) :Boolean = {
+    @annotation.tailrec 
+    def isOnOrderUntilNow(x:Int):Boolean = {
+        if(x >= as.length-1) true
+        else if( ordered(as(x),as(x+1)) ){
+          isOnOrderUntilNow(x+1)
+        }else false
+    }
+    isOnOrderUntilNow(0)
+}
   // Exercise 5
 
   def curry[A,B,C] (f: (A,B)=>C): A => (B => C) = ???
