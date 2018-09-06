@@ -57,7 +57,10 @@ object Exercises extends App with ExercisesInterface {
 }
   // Exercise 5
 
-  def curry[A,B,C] (f: (A,B)=>C): A => (B => C) = ???
+  def curry[A,B,C] (f: (A,B)=>C): A => (B => C) = 
+  {
+      a => b => f(a,b)
+  }
 
   // Exercise 6
 
